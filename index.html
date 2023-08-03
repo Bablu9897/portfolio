@@ -22,6 +22,7 @@
    ================================================== -->   
 	<script src="js/modernizr.js"></script>
 	<script src="js/pace.min.js"></script>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
 
   
 
@@ -710,7 +711,7 @@ Thank you for visiting my portfolio. I'm always eager to explore new opportuniti
    		<div class="col-twelve">
 
             <!-- form -->
-            <form name="contactForm" id="contactForm" method="post" action="" enctype="text/plain">
+            <form name="contactForm"  method="post" action="" enctype="text/plain">
       			<fieldset>
 
                   <div class="form-field">
@@ -726,7 +727,7 @@ Thank you for visiting my portfolio. I'm always eager to explore new opportuniti
 	                 	<textarea name="contactMessage" id="contactMessage" placeholder="message" rows="10" cols="50" required=""></textarea>
 	               </div>                      
                  <div class="form-field">
-                     <button class="submitform">Submit</button>
+                     <button class="submitform" onclick="sendEmail()">Submit</button>
                      <div id="submit-loader">
                         <div class="text-loader">Sending...</div>                             
        				      <div class="s-loader">
@@ -751,6 +752,23 @@ Thank you for visiting my portfolio. I'm always eager to explore new opportuniti
          </div> <!-- /col-twelve -->
    		
    	</div> <!-- /contact-form -->
+
+		<script type="text/javascript">
+    function sendEmail() {
+      Email.send({
+        Host: "smtp.gmail.com",
+        Username: "teenubablu1234@gmail.com",
+        Password: "Enter your password",
+        To: 'receiver@email_address.com',
+        From: "teenubablu1234@gmail.com",
+        Subject: "Sending Email using javascript",
+        Body: "Well that was easy!!",
+      })
+        .then(function (message) {
+          alert("mail sent successfully")
+        });
+    }
+  </script>
 
    	<div class="row contact-info">
 
